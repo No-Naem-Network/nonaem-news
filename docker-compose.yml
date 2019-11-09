@@ -1,0 +1,59 @@
+version: "3"
+
+services:
+    workspace:
+        container_name: news_workspace
+        restart: always
+        build:
+            context: .
+            dockerfile: ./.docker/workspace/build/Dockerfile
+        volumes:
+            - ${BACKEND_PATH}:/var/www/project/backend
+        tty: true
+    php-fpm:
+        container_name: news_php-fpm
+        restart: always
+        build:
+            context: .
+            dockerfile: ./.docker/php-fpm/build/Dockerfile
+        volumes:
+            - ${BACKEND_PATH}:/var/www/project/backend
+        expose:
+            - "9000"
+        links:
+            - workspace
+    nginx:
+        container_name: news_nginx
+        restart: always
+        build:
+            context: .
+            dockerfile: ./.docker/nginx/build/Dockerfile
+        volumes:
+            - ${BACKEND_PATH}:/var/www/project/backend
+            - ${LOG_NGINX_PATH}:/var/log/nginx
+            - ${NGINX_SITE_CONFIG_PATH}:/etc/nginx/conf.d
+            - ${NGINX_MODULES_PATH}:/etc/nginx/modules
+        ports:
+            - "81:80"
+        links:
+            - php-fpm
+    mysql:
+        container_name: news_mysql
+        restart: always
+        image: mysql:5.6
+        volumes:
+            - ${MYSQL_DATA_PATH}:/var/lib/mysql
+            - ${LOG_MYSQL_PATH}:/var/log/mysql
+        expose:
+            - "3306"
+        environment:
+            MYSQL_DATABASE: homestead
+            MYSQL_USER: homestead
+            MYSQL_PASSWORD: secret
+            MYSQL_ROOT_PASSWORD: root
+    redis:
+        container_name: news_redis
+        restart: always
+        image: redis
+        expose:
+            - "6379"
