@@ -38,11 +38,11 @@ RUN apt-get update && apt-get install -y\
     && rm -r /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install -y pkg-config patch
-ADD https://git.archlinux.org/svntogit/packages.git/plain/trunk/freetype.patch?h=packages/php /tmp/freetype.patch
-RUN docker-php-source extract; \
-  cd /usr/src/php; \
-  patch -p1 -i /tmp/freetype.patch; \
-  rm /tmp/freetype.patch
+# ADD https://git.archlinux.org/svntogit/packages.git/plain/trunk/freetype.patch?h=packages/php /tmp/freetype.patch
+# RUN docker-php-source extract; \
+#   cd /usr/src/php; \
+#   patch -p1 -i /tmp/freetype.patch; \
+#   rm /tmp/freetype.patch
 
 # configure gd library for php-extension for read write image
 RUN docker-php-ext-configure gd \
@@ -78,8 +78,8 @@ RUN usermod -u 1000 www-data
 WORKDIR /var/www/project
 
 # add config for php-fpm.
-ADD ./docker/php-fpm/config/conf.ini /usr/local/etc/php/conf.d
-ADD ./docker/php-fpm/config/php-fpm.conf /usr/local/etc/php-fpm.d/
+ADD ./.docker/php-fpm/config/conf.ini /usr/local/etc/php/conf.d
+ADD ./.docker/php-fpm/config/php-fpm.conf /usr/local/etc/php-fpm.d/
 
 # run php-fpm command.
 CMD [ "php-fpm" ]
