@@ -57,14 +57,6 @@
                 <p class="change_link">Already a member ?
                     <a href="{{ route('login') }}" class="to_register"> {{ __('Login') }} </a>
                 </p>
-
-                <div class="clearfix"></div>
-                <br />
-
-                <div>
-                    <h1><i class="fa fa-newspaper-o"></i> No Naem News!</h1>
-                    <p>©2020 All Rights Reserved. No Naem Inc.</p>
-                </div>
             </div>
         </form>
     </section>
