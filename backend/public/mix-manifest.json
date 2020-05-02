@@ -1,4 +1,14 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/assets/app/js/app.js": "/assets/app/js/app.js?id=11d6572328c173c395bf",
+    "/assets/app/css/app.css": "/assets/app/css/app.css?id=c495654869785bc3df60",
+    "/assets/auth/css/login.css": "/assets/auth/css/login.css?id=d41d8cd98f00b204e980",
+    "/assets/auth/css/register.css": "/assets/auth/css/register.css?id=d41d8cd98f00b204e980",
+    "/assets/auth/css/passwords.css": "/assets/auth/css/passwords.css?id=d41d8cd98f00b204e980",
+    "/assets/auth/css/auth.css": "/assets/auth/css/auth.css?id=a500d4964db6e3621df3",
+    "/assets/admin/js/admin.js": "/assets/admin/js/admin.js?id=c422d6267472507b815c",
+    "/assets/admin/css/admin.css": "/assets/admin/css/admin.css?id=c55b7341052f4ef0e4a4",
+    "/assets/admin/js/users/edit.js": "/assets/admin/js/users/edit.js?id=c2afdeda30583c460d6d",
+    "/assets/admin/css/users/edit.css": "/assets/admin/css/users/edit.css?id=a2194c2626489df39c39",
+    "/assets/admin/js/dashboard.js": "/assets/admin/js/dashboard.js?id=d871c4a2205d38dfdc9a",
+    "/assets/admin/css/dashboard.css": "/assets/admin/css/dashboard.css?id=4d2c654db7b801e213d5"
 }
